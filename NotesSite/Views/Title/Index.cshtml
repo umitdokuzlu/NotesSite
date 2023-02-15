@@ -1,0 +1,29 @@
+﻿@model List<NoteTitle>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Başlık Adı</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.TitleId</th>
+                <td>@item.TitleName</td>
+                <td><a href="/Title/DeleteNote/@item.TitleId" class="btn btn-outline-danger">Sil</a></td>
+                <td><a href="/Title/UpdateNote/@item.TitleId" class="btn btn-outline-danger">Güncelle</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Title/AddNote/" class="form-control btn btn-danger">Not İçin Başlık Ekle</a>

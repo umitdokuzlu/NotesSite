@@ -1,0 +1,28 @@
+﻿@model List<Note>
+@{
+    ViewData["Title"] = "NoteDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr class="table table-danger">
+        <th>Not</th>
+        <th>Notlar</th>
+    </tr>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NoteId</td>
+                <td>@item.NoteDescription</td>                
+            </tr>           
+        }
+        
+    </tbody>
+
+</table>
+<a href="/Home/GetNotesTitle/" class="btn btn-outline-warning">Bütün notlarıma geri dön</a>
+
+

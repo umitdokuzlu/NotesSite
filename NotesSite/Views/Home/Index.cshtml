@@ -1,0 +1,22 @@
+﻿@model List<Note>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-controller="Home" asp-action="Index">
+    
+@foreach (var item in Model)
+    {
+        <div class="card text-center">
+            <div class="card-header">
+                @item.NoteTitle.TitleName
+            </div>
+            <div class="card-body">
+                <p class="card-text">@item.NoteDescription</p>
+            </div>
+        </div>
+        <br/>
+    }
+</form>

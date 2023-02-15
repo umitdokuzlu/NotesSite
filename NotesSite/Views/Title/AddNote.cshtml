@@ -1,0 +1,16 @@
+﻿@model NoteTitle
+@{
+    ViewData["Title"] = "AddNote";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<form asp-controller="Title" asp-action="AddNote">
+    @Html.HiddenFor(x=>x.TitleId)
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Başlık Seç</label>
+        @Html.TextBoxFor(x=>x.TitleName, new {@class="form-control"})
+        <br />
+    </div>
+    <button class="btn btn-dark">Ekle</button>
+</form>
+

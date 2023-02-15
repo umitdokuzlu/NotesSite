@@ -1,0 +1,19 @@
+﻿@model Note
+@{
+    ViewData["Title"] = "UpdateNote";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<form asp-controller="Admin" asp-action="UpdateNote">
+    @Html.HiddenFor(x=>x.NoteId)
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Başlık Seç</label>
+        <select asp-for="NoteTitleId" asp-items="(List<SelectListItem>)ViewBag.v" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Note İçeriği</label>
+        <textarea class="form-control" asp-for="NoteDescription" rows="10"></textarea>
+    </div>
+    <button class="btn btn-dark">Güncelle</button>
+</form>
+

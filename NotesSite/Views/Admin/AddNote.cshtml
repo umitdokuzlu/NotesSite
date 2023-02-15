@@ -1,0 +1,20 @@
+﻿@model Note
+@{
+    ViewData["Title"] = "AddNote";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<form asp-controller="Admin" asp-action="AddNote">
+    @Html.HiddenFor(x=>x.NoteId)
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Başlık Seç</label>
+        <select asp-for="NoteTitleId" asp-items="(List<SelectListItem>)ViewBag.v" class="form-control"></select>
+        @*@Html.DropDownListFor(x=>x.NoteTitle,(List<SelectListItem>)ViewBag.v, new {@class="form-control"})*@
+        <br />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Note İçeriği</label>
+        <textarea class="form-control" asp-for="NoteDescription" rows="10"></textarea>
+    </div>
+    <button class="btn btn-dark">Ekle</button>
+</form>
